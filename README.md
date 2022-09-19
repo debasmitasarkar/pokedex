@@ -2,6 +2,9 @@
 
 Welcome to the Pokedex project!
 
+<img width="1157" alt="Screenshot 2022-09-19 at 4 57 26 PM" src="https://user-images.githubusercontent.com/16499313/191015026-15e098b8-0225-41c7-bbc5-e791c94a8e45.png">
+
+
 ## Getting Started
 
 Instructions to run:
