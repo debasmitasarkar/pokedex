@@ -18,6 +18,7 @@ class _AllPokemonWidgetState extends ConsumerState<AllPokemonWidget> {
       PagingController<int, PokemonDetailEntity>(firstPageKey: 0);
 
   int pageLimit = 20;
+  final initialPage = 0;
 
   _onTapPokemon(PokemonDetailEntity pokemonDetail) {
     Navigator.of(context)
@@ -26,7 +27,7 @@ class _AllPokemonWidgetState extends ConsumerState<AllPokemonWidget> {
 
   @override
   void initState() {
-    init();
+    Future.delayed(const Duration(milliseconds: 100),()=> init());
     super.initState();
   }
 
@@ -52,6 +53,8 @@ class _AllPokemonWidgetState extends ConsumerState<AllPokemonWidget> {
           ref.read(pokemonListProvider.notifier).state;
       if (cachedPokemons.isNotEmpty) {
         _pagingController.itemList = cachedPokemons;
+      } else {
+        await _fetchPage(initialPage);
       }
 
       _pagingController.addPageRequestListener((pageKey) async {
